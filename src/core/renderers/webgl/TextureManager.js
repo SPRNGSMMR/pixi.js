@@ -125,7 +125,7 @@ export default class TextureManager
             {
                 glTexture = new GLTexture(this.gl, null, null, null, null);
                 glTexture.bind(location);
-                glTexture.premultiplyAlpha = true;
+                glTexture.premultiplyAlpha = !(texture.source instanceof HTMLVideoElement && navigator.userAgent.indexOf('Firefox') > -1);
                 glTexture.upload(texture.source);
             }
 
